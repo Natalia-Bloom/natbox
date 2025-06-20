@@ -1,0 +1,87 @@
+.combobox {
+	display: block;
+	position: relative;
+}
+
+.combobox__input {
+	position: relative;
+	display: block;
+	border: 1px solid #000;
+	padding: 12px 16px 14px;
+	text-align: start;
+	inline-size: 100%;
+	background: #fff;
+	cursor: pointer;
+}
+
+.combobox__input.is-focused {
+	outline: 2px solid currentColor;
+	outline-offset: -2px;
+}
+
+.combobox__input[aria-expanded="true"].is-focused {
+	outline: none;
+}
+
+.combobox__input:after {
+	content: "";
+	display: block;
+	position: absolute;
+	inset-block-start: 50%;
+	inset-inline-end: 16px;
+	border-block-end: 2px solid #000;
+	border-inline-end: 2px solid #000;
+	inline-size: 6px;
+	block-size: 6px;
+	pointer-events: none;
+	transform: translateY(-65%) rotate(45deg);
+}
+
+.combobox__popup {
+	display: none;
+	position: absolute;
+	inset-block-start: 100%;
+	inset-inline-start: 0;
+	border: 1px solid #000;
+	inline-size: 100%;
+	max-block-size: 300px;
+	background: #fff;
+	overflow-y: auto;
+	z-index: 101;
+}
+
+.combobox:has([aria-expanded="true"]) .combobox__popup {
+	display: block;
+}
+
+.combobox__option {
+	padding: 10px 12px 12px;
+}
+
+@media (hover: hover) AND (pointer: fine) {
+	.combobox__option:where(:hover, :focus-visible) {
+		background-color: rgba(0, 0, 0, .1);
+	}
+}
+
+.combobox__option.is-current {
+	outline: 3px solid currentColor;
+	outline-offset: -3px;
+}
+
+.combobox__option[aria-selected="true"] {
+	position: relative;
+	padding-inline-end: 30px;
+}
+
+.combobox__option[aria-selected="true"]:after {
+	content: "";
+	position: absolute;
+	inset-block-start: 50%;
+	inset-inline-end: 15px;
+	border-block-end: 2px solid #000;
+	border-inline-end: 2px solid #000;
+	inline-size: 8px;
+	block-size: 16px;
+	transform: translateY(-50%) rotate(45deg);
+}

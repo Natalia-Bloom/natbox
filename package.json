@@ -1,0 +1,25 @@
+{
+  "name": "natbox",
+  "version": "1.0.0",
+  "description": "An accessible Combobox pattern.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Natalia-Bloom/natbox.git"
+  },
+  "keywords": [
+    "combobox",
+    "accessibility",
+    "select"
+  ],
+  "author": "Natalia Bloom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Natalia-Bloom/natbox/issues"
+  },
+  "homepage": "https://github.com/Natalia-Bloom/natbox#readme"
+}
