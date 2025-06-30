@@ -258,7 +258,7 @@ function attachListeners( combobox, input, options, hiddenInput ) {
 				selectedOption = combobox.querySelector( '[role="option"][aria-selected="true"]' );
 			}
 
-			selectOption( combobox.querySelector( '.js-combobox-input' ), selectedOption, hiddenInput );
+			selectOption( input, selectedOption, hiddenInput );
 		}
 	} );
 }
