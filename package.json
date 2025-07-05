@@ -1,6 +1,6 @@
 {
   "name": "natbox",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An accessible Combobox pattern.",
   "type": "module",
   "main": "index.js",
