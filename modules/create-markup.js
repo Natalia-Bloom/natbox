@@ -4,7 +4,7 @@
 
 import { attachListeners } from './attach-event-listeners.js';
 
-export function createMarkup( select, label, options ) {
+export function createMarkup( select, label, options, params ) {
 	const index = document.querySelectorAll( '.js-combobox' ).length;
 
 	const combobox = document.createElement( 'div' );
@@ -14,6 +14,10 @@ export function createMarkup( select, label, options ) {
 	comboboxLabel.classList.add( 'combobox__label' );
 	comboboxLabel.setAttribute( 'id', 'combobox-' + index + '-label' );
 	comboboxLabel.innerText = label;
+
+	if ( params.labelVisibility === false ) {
+		comboboxLabel.classList.add( 'is-screen-reader-only' );
+	}
 
 	const comboboxListbox = document.createElement( 'div' );
 	comboboxListbox.classList.add( 'combobox__popup' );
