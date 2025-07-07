@@ -2,9 +2,10 @@
 // Natbox
 // ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
 
-import { createMarkup } from "./modules/create-markup.js";
+import { createSelectOnlyMarkup, createEditableMarkup } from "./modules/create-markup.js";
 
 function initCombobox( select, params ) {
+	let combobox = null;
 	const label = document.querySelector( 'label[for="' + select.id + '"]' );
 	const options = select.querySelectorAll( 'option' );
 
@@ -18,7 +19,12 @@ function initCombobox( select, params ) {
 		return;
 	}
 
-	const combobox = createMarkup( select, label.innerText, options, params );
+	if ( params.patternType === 'select-only' ) {
+		combobox = createSelectOnlyMarkup( select, label.innerText, options, params );
+	} else {
+		combobox = createEditableMarkup( select, label.innerText, options, params );
+	}
+
 	select.insertAdjacentElement( 'afterend', combobox );
 
 	select.remove();
@@ -29,6 +35,7 @@ function initCombobox( select, params ) {
 
 export function Natbox( selector, params = {
 	labelVisibility: true,
+	patternType: 'select-only' // select-only, editable, editable-grid
 } ) {
 	let combobox = null;
 

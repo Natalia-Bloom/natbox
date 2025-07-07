@@ -1,3 +1,9 @@
+/*
+ ╭──────────── · · ୨୧ · · ────────────╮
+	Styles
+╰──────────── · · ୨୧ · · ────────────╯
+*/
+
 .combobox {
 	display: block;
 	position: relative;
@@ -13,38 +19,78 @@
 	white-space: nowrap; 
 }
 
+.combobox__flex {
+	display: flex;
+}
+
+.combobox__flex:has(.combobox__input.is-focused) {
+	outline: 2px solid currentColor;
+	outline-offset: -2px;
+}
+
+.combobox__flex:has(+ .combobox__popup .combobox__option.is-current) {
+	outline: none;
+}
+
 .combobox__input {
 	position: relative;
 	display: block;
-	border: 1px solid #000;
+	border: 1px solid currentColor;
 	padding: 12px 16px 14px;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
 	text-align: start;
+	color: currentColor;
 	inline-size: 100%;
 	background: #fff;
 	cursor: pointer;
+}
+
+.combobox--editable .combobox__input {
+	position: static;
+	border-inline-end: 0;
 }
 
 .combobox__input.is-focused {
 	outline: 2px solid currentColor;
 	outline-offset: -2px;
 }
+.combobox--editable .combobox__input.is-focused {
+	outline: 0;
+}
 
-.combobox__input[aria-expanded="true"].is-focused {
+.combobox__input:has(+ .combobox__popup .combobox__option.is-current) {
 	outline: none;
 }
 
-.combobox__input:after {
+.combobox--select-only .combobox__input:after {
 	content: "";
 	display: block;
 	position: absolute;
 	inset-block-start: 50%;
 	inset-inline-end: 16px;
-	border-block-end: 2px solid #000;
-	border-inline-end: 2px solid #000;
+	border-block-end: 2px solid currentColor;
+	border-inline-end: 2px solid currentColor;
 	inline-size: 6px;
 	block-size: 6px;
 	pointer-events: none;
 	transform: translateY(-65%) rotate(45deg);
+}
+
+.combobox__btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	border: 1px solid currentColor;
+	border-inline-start: 0;
+	padding: 8px 16px;
+}
+
+.combobox__btn[aria-expanded="true"] svg {
+	transform: rotate(180deg);
 }
 
 .combobox__popup {
@@ -52,7 +98,8 @@
 	position: absolute;
 	inset-block-start: 100%;
 	inset-inline-start: 0;
-	border: 1px solid #000;
+	border: 1px solid currentColor;
+	border-block-start: 0;
 	inline-size: 100%;
 	max-block-size: 300px;
 	background: #fff;
@@ -75,8 +122,8 @@
 }
 
 .combobox__option.is-current {
-	outline: 3px solid currentColor;
-	outline-offset: -3px;
+	outline: 2px solid currentColor;
+	outline-offset: -2px;
 }
 
 .combobox__option[aria-selected="true"] {
@@ -84,13 +131,13 @@
 	padding-inline-end: 30px;
 }
 
-.combobox__option[aria-selected="true"]:after {
+div.combobox__option[aria-selected="true"]:after {
 	content: "";
 	position: absolute;
 	inset-block-start: 50%;
 	inset-inline-end: 15px;
-	border-block-end: 2px solid #000;
-	border-inline-end: 2px solid #000;
+	border-block-end: 2px solid currentColor;
+	border-inline-end: 2px solid currentColor;
 	inline-size: 8px;
 	block-size: 16px;
 	transform: translateY(-50%) rotate(45deg);
