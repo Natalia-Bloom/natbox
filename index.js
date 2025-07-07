@@ -19,10 +19,10 @@ function initCombobox( select, params ) {
 		return;
 	}
 
-	if ( params.patternType === 'select-only' ) {
-		combobox = createSelectOnlyMarkup( select, label.innerText, options, params );
-	} else {
+	if ( params.patternType === 'editable' ) {
 		combobox = createEditableMarkup( select, label.innerText, options, params );
+	} else {
+		combobox = createSelectOnlyMarkup( select, label.innerText, options, params );
 	}
 
 	select.insertAdjacentElement( 'afterend', combobox );
